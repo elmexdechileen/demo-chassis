@@ -10,3 +10,4 @@ set -e
 (cd prometheus && docker-compose down -v)
 (cd consul && docker-compose down -v)
 (cd coredns && docker-compose down -v)
+(cd jupyterhub && docker-compose down -v)
