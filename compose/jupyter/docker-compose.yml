@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  notebook:
+    image: jupyter/datascience-notebook
+    restart: always
+    container_name: jupyter
+    volumes:
+      - "./data:/home/jovyan/work"
+    ports:
+      - "8888:8888"
+    labels:
+      GLOBAL_NAME: notebook
+      traefik.enable: true
+      traefik.http.routers.demolinks.entrypoints: https
+    networks:
+      - chassis
+    dns: 172.30.30.30
+
+volumes:
+  data:
+    external:
+      name: ${DATA_VOLUME_HOST}
+  db:
+    external:
+      name: ${DB_VOLUME_HOST}
+
+networks:
+  chassis:
+    external: true

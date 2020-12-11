@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  mocker:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    restart: always
+    container_name: mocker
+    labels:
+      GLOBAL_NAME: mocker
+    networks:
+      - chassis
+    dns: 172.30.30.30
+
+networks:
+  chassis:
+    external: true

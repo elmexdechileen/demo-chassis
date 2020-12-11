@@ -1,0 +1,6 @@
+confluent_kafka
+ksql
+nltk
+kafka-python
+faker
+confuse

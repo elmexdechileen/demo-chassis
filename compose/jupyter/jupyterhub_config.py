@@ -35,7 +35,7 @@ notebook_dir = os.environ.get('DOCKER_NOTEBOOK_DIR') or '/home/jovyan/work'
 c.DockerSpawner.notebook_dir = notebook_dir
 # Mount the real user's Docker volume on the host to the notebook user's
 # notebook directory in the container
-c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir }
+c.DockerSpawner.volumes = { 'jupyter-user-{username}': notebook_dir }
 # volume_driver is no longer a keyword argument to create_container()
 # c.DockerSpawner.extra_create_kwargs.update({ 'volume_driver': 'local' })
 # Remove containers once they are stopped
@@ -44,7 +44,7 @@ c.DockerSpawner.remove_containers = True
 c.DockerSpawner.debug = True
 
 # User containers will access hub by container name on the Docker network
-c.JupyterHub.hub_ip = 'jupyterhub'
+c.JupyterHub.hub_ip = 'jupyter'
 c.JupyterHub.hub_port = 8080
 
 # TLS config
