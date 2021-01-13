@@ -12,3 +12,4 @@ set -e
 (cd coredns && docker-compose down -v)
 (cd jupyter && docker-compose down -v)
 (cd redis && docker-compose down -v)
+(cd transaction-mocker && docker-compose down -v)

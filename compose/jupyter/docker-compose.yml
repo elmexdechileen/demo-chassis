@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   notebook:
-    image: jupyter/datascience-notebook
+    build: .
     restart: always
     container_name: jupyter
     volumes:

@@ -27,4 +27,4 @@ while True:
       'amount_cents': fake.pyint(),
       'created_at': fake.date_time().strftime("%Y/%m/%d, %H:%M:%S")
     })
-    sleep(1/rate)
+    sleep(rate)
