@@ -1,0 +1,27 @@
+services:
+  mocker-vs:
+    build:
+      dockerfile: ./Dockerfile
+      context: . 
+    container_name: mocker-vs
+    labels:
+      GLOBAL_NAME: mocker-vs
+    networks:
+      - chassis
+    dns: 172.30.30.30
+    volumes:
+      # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
+      # mounts are relative to the first file in the list, which is a level up.
+      - .:/workspace:cached
+      - ..:/app
+    # [Optional] Required for ptrace-based debuggers like C++, Go, and Rust
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/bash -c "while sleep 1000; do :; done"
+    
+networks:
+  chassis:
+    external: true

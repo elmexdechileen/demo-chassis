@@ -1,3 +1,17 @@
 transactions:
   rate: 10
+
+kafka:
   topic: transactions
+  ksqlapiurl: http://localhost:8088
+  broker: broker:29092
+  # ksqlapiurl: http://ksqldb-server:8088
+  # broker: broker:2909
+
+database:
+  hostname: oracledb
+  port: 1521
+  sid: xe
+  service name: xe
+  username: system
+  password: oracle

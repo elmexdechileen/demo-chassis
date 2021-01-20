@@ -15,6 +15,7 @@ echo "Waiting 40 seconds for Consul to converge" && sleep 40
 (cd kafka && docker-compose up -d --build)
 (cd jupyter && docker-compose up -d --build)
 (cd redis && docker-compose up -d --build)
+(cd oracle && docker-compose up -d --build)
 (cd transaction-mocker && docker-compose up -d --build)
 
 echo "Note 1: Kafka may need a few seconds to spin up before it is ready"

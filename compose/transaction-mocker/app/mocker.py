@@ -16,12 +16,13 @@ config = confuse.Configuration('mocker')
 config.set_file('/app/config.yaml')
 
 rate = config['transactions']['rate'].get(int)
-topic = config['transactions']['topic'].get()
+topic = config['kafka']['topic'].get()
 
 print("Start sending transactions")
 while True:
     producer.send(topic, value={
-      'transaction_id': "RF12111",
+      'transaction_id': "RF" + str(fake.pyint(5)),
+      'transaction_type': "transaction_" + str(fake.pyint(1)),
       'from_account': fake.iban(),
       'to_account': fake.iban(),
       'amount_cents': fake.pyint(),

@@ -4,3 +4,4 @@ nltk
 kafka-python
 faker
 confuse
+cx_Oracle

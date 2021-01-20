@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  oracledb:
+    image: quay.io/maksymbilenko/oracle-12c
+    restart: always
+    container_name: oracledb
+    volumes:
+      - "./data:/home/jovyan/work"
+    ports:
+      - "18080:8080"
+      - "1521:1521"
+    labels:
+      GLOBAL_NAME: oracledb
+      traefik.enable: false
+    networks:
+      - chassis
+    dns: 172.30.30.30
+
+networks:
+  chassis:
+    external: true
